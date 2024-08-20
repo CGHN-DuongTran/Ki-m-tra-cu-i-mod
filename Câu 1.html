@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Search</h1>
+<p class="result" id="result">Tổng: </p>
+<script>
+    const array = [15, 30, 7, 8, 45, 50, 9, 6, 75, 90, 100];
+    let totalSum = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 15 === 0) {
+            totalSum += array[i];
+        }
+    }
+    console.log("Total:", totalSum);
+    document.getElementById('result').textContent = "Tổng của bội chung 3 và 5 là: " + totalSum;
+</script>
+</body>
+</html>

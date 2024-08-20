@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function lamTron(diem) {
+        if (diem < 48) {
+            return diem;
+        }
+
+        const boiso5 = Math.ceil(diem / 5) * 5;
+        if (boiso5 - diem < 3) {
+            if (boiso5 < 50) {
+                return diem;
+            }
+            return boiso5;
+        }
+
+        return diem;
+    }
+    let diem = parseInt(prompt("Nhập điểm của bạn:"), 10);
+    if (isNaN(diem) || diem < 0 || diem > 100) {
+        alert("Vui lòng nhập một điểm hợp lệ từ 0 đến 100.");
+    } else if (diem < 50) {
+        alert("Bạn trượt rồi :(");
+    } else {
+        let diemSauKhiLamTron = roundScore(diem);
+        alert("Điểm sau khi làm tròn: " + diemSauKhiLamTron);
+    }
+</script>
+</body>
+</html>

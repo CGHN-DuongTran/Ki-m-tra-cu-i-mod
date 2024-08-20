@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 4</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Khách Hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Quản lý Khách Hàng</h1>
+    <div>
+        <h2>Thêm Khách Hàng</h2>
+        <form id="addCustomerForm">
+            <label for="ma">Mã Khách Hàng:</label>
+            <input type="text" id="ma" required>
+            <label for="ten">Tên Khách Hàng:</label>
+            <input type="text" id="ten" required>
+            <label for="sdt">Số Điện Thoại:</label>
+            <input type="text" id="sdt" required>
+            <label for="adr">Địa Chỉ:</label>
+            <input type="text" id="adr" required>
+            <label for="email">Email:</label>
+            <input type="text" id="email" required>
+            <button type="submit">Thêm Khách Hàng</button>
+        </form>
+    </div>
+    <div>
+        <h2>Danh Sách Khách Hàng</h2>
+        <table id="customerTable">
+            <thead>
+            <tr>
+                <th>Mã Khách Hàng</th>
+                <th>Tên Khách Hàng</th>
+                <th>Số Điện Thoại</th>
+                <th>Địa Chỉ</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    class KhachHang {
+        constructor(ma, ten, sdt, adr, email) {
+            this.ma = ma;
+            this.ten = ten;
+            this.sdt = sdt;
+            this.adr = adr;
+            this.email = email;
+        }
+
+        toTableRow() {
+            return `
+                    <tr>
+                        <td>${this.ma}</td>
+                        <td>${this.ten}</td>
+                        <td>${this.sdt}</td>
+                        <td>${this.adr}</td>
+                        <td>${this.email}</td>
+                    </tr>
+                `;
+        }
+    }
+
+    document.getElementById('addCustomerForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const ma = document.getElementById('ma').value;
+        const ten = document.getElementById('ten').value;
+        const sdt = document.getElementById('sdt').value;
+        const adr = document.getElementById('adr').value;
+        const email = document.getElementById('email').value;
+
+        const khachHang = new KhachHang(ma, ten, sdt, adr, email);
+        addCustomerToTable(khachHang);
+
+        // Reset form
+        this.reset();
+    });
+
+    function addCustomerToTable(khachHang) {
+        const tableBody = document.getElementById('customerTable').getElementsByTagName('tbody')[0];
+        const newRow = khachHang.toTableRow();
+        tableBody.insertAdjacentHTML('beforeend', newRow);
+    }
+</script>
+</body>
+</html>
+
+</body>
+</html>
